@@ -1,0 +1,51 @@
+
+- name: Install dependencies
+with_items:
+  - rpb-build
+  - make
+  - asciidoc
+  - git
+  - python-setuptools
+  - python2-devel
+
+- name: Install Ansible Python dependencies
+yum: name={{ item }}
+with_items:
+  - PyYAML
+  - python-httplib2
+  - jinja2
+  - python-keyczar
+  - python-paramiko
+  - python-six
+  - sshpass
+
+#accept_hostkey = if `yes', adds the hostkey for the repo url if not already added. If ssh_opts contains "-o
+#bare = if `yes', repository will be created as a bare repo, otherwise it will be a standard repo with a workspace.
+#clone = If `no', do not clone the repository if it does not exist locally
+#depth = Create a shallow clone with a history truncated to the specified number or revisions. The minimum possible value
+#dest = Absolute path of where the repository should be checked out to. This parameter is required, unless `clone' is
+#executable = Path to git executable to use. If not supplied, the normal mechanism for resolving binary paths will be used.
+#force = If `yes', any modified files in the working repository will be discarded.  Prior to 0.7, this was always 'yes'
+#key_file = Specify an optional private key file to use for the checkout.
+#recursive = if `no', repository will be cloned without the --recursive option, skipping sub-modules.
+#reference = Reference repository (see "git clone --reference ...")
+#refspec = Add an additional refspec to be fetched. If version is set to a `SHA-1' not reachable from any branch or tag,
+#remote = Name of the remote.
+#repo = git, SSH, or HTTP protocol address of the git repository.
+#ssh_opts = Creates a wrapper script and exports the path as GIT_SSH which git then automatically uses to override ssh
+#track_submodules = if `yes', submodules will track the latest commit on their master branch (or other branch specified in
+#update = If `no', do not retrieve new revisions from the origin repository
+#verify_commit = if `yes', when cloning or checking out a `version' verify the signature of a GPG signed commit. This requires
+#version = What version of the repository to check out.  This can be the full 40-character `SHA-1' hash, the literal string
+- name: Git Clone Ansible
+  git: clone={{ ansible_clone_git_url }} recursive=true dest={{ ansible_clone_path }}
+  
+- name: Make Ansible RPM
+  make: chdir={{ ansible_clone_path }} target=rpm
+
+- name: Insall RPM
+  yum: name={{ ansible_clone_path }}rpm-build/ansible-*.noarch.rpm state=present
+
+- name: Install Ansible
+  yum: name=ansible
+  
