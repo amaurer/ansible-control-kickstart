@@ -42,7 +42,7 @@
 #verify_commit = if `yes', when cloning or checking out a `version' verify the signature of a GPG signed commit. This requires
 #version = What version of the repository to check out.  This can be the full 40-character `SHA-1' hash, the literal string
 - name: Git Clone Ansible
-  git: clone={{ ansible_clone_git_url }} recursive=true dest={{ ansible_clone_path }}
+  git: clone=true repo={{ ansible_clone_git_url }} recursive=true dest={{ ansible_clone_path }}
   
 - name: Make Ansible RPM
   make: chdir={{ ansible_clone_path }} target=rpm
