@@ -1,23 +1,23 @@
 
 - name: Install dependencies
-with_items:
-  - rpb-build
-  - make
-  - asciidoc
-  - git
-  - python-setuptools
-  - python2-devel
+  with_items:
+    - rpb-build
+    - make
+    - asciidoc
+    - git
+    - python-setuptools
+    - python2-devel
 
 - name: Install Ansible Python dependencies
-yum: name={{ item }}
-with_items:
-  - PyYAML
-  - python-httplib2
-  - jinja2
-  - python-keyczar
-  - python-paramiko
-  - python-six
-  - sshpass
+  yum: name={{ item }}
+  with_items:
+    - PyYAML
+    - python-httplib2
+    - jinja2
+    - python-keyczar
+    - python-paramiko
+    - python-six
+    - sshpass
 
 #accept_hostkey = if `yes', adds the hostkey for the repo url if not already added. If ssh_opts contains "-o
 #bare = if `yes', repository will be created as a bare repo, otherwise it will be a standard repo with a workspace.
