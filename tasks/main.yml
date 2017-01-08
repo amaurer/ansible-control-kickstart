@@ -9,8 +9,11 @@
     - python-setuptools
     - python2-devel
 
+- name: Install PIP
+  easy_install: name=pip2
+
 - name: Install Ansible Python dependencies
-  yum: name={{ item }}
+  pip: name={{ item }}
   with_items:
     - PyYAML
     - python-httplib2
