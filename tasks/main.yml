@@ -16,11 +16,11 @@
   pip: name={{ item }}
   with_items:
     - PyYAML
-    - python-httplib2
+    - httplib2
     - jinja2
-    - python-keyczar
-    - python-paramiko
-    - python-six
+    - keyczar
+    - paramiko
+    - six
     - sshpass
 
 #accept_hostkey = if `yes', adds the hostkey for the repo url if not already added. If ssh_opts contains "-o
