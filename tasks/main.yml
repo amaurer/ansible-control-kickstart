@@ -2,12 +2,20 @@
 - name: Install dependencies
   yum: name={{ item }}
   with_items:
+    - epel-release
     - rpm-build
     - make
     - asciidoc
     - git
     - python-setuptools
     - python2-devel
+    - PyYAML
+    - python-httplib2
+    - jinja2
+    - python-six
+    - sshpass
+    - python-keyczar
+    - python-paramiko
 
 - name: Install PIP
   easy_install: name=pip
@@ -19,9 +27,6 @@
     - httplib2
     - jinja2
     - six
-    # - sshpass
-    # - keyczar
-    # - paramiko
 
 #accept_hostkey = if `yes', adds the hostkey for the repo url if not already added. If ssh_opts contains "-o
 #bare = if `yes', repository will be created as a bare repo, otherwise it will be a standard repo with a workspace.
