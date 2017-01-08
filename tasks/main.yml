@@ -1,8 +1,12 @@
 
-- name: Install dependencies
+- name: Install Release EPEL
   yum: name={{ item }}
   with_items:
     - epel-release
+
+- name: Install dependencies
+  yum: name={{ item }}
+  with_items:
     - rpm-build
     - make
     - asciidoc
