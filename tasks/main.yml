@@ -15,7 +15,7 @@
     - python2-devel
     - PyYAML
     - python-httplib2
-    - jinja2
+    - python-jinja2
     - python-six
     - sshpass
     - python-keyczar
