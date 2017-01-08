@@ -48,7 +48,8 @@
   make: chdir={{ ansible_clone_path }} target=rpm
 
 - name: Insall RPM
-  yum: name={{ ansible_clone_path }}rpm-build/ansible-*.noarch.rpm state=present
+  command: rpm -Uvh {{ ansible_clone_path }}rpm-build/ansible-*.noarch.rpm
+  # yum: name={{ ansible_clone_path }}rpm-build/ansible-*.noarch.rpm state=present
 
 - name: Install Ansible
   yum: name=ansible
