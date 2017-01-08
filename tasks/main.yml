@@ -2,7 +2,7 @@
 - name: Install dependencies
   yum: name={{ item }}
   with_items:
-    - rpb-build
+    - rpm-build
     - make
     - asciidoc
     - git
