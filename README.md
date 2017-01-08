@@ -32,6 +32,12 @@ Including an example of how to use your role (for instance, with variables passe
       roles:
          - { role: amaurer.control-kickstart }
 
+Test
+-------
+`cd tests`
+`ansible-playbook test.yml --check`
+
+
 License
 -------
 

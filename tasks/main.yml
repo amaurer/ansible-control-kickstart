@@ -1,5 +1,6 @@
 
 - name: Install dependencies
+  yum: name={{ item }}
   with_items:
     - rpb-build
     - make
