@@ -18,10 +18,10 @@
     - PyYAML
     - httplib2
     - jinja2
-    - keyczar
-    - paramiko
     - six
-    - sshpass
+    # - sshpass
+    # - keyczar
+    # - paramiko
 
 #accept_hostkey = if `yes', adds the hostkey for the repo url if not already added. If ssh_opts contains "-o
 #bare = if `yes', repository will be created as a bare repo, otherwise it will be a standard repo with a workspace.
